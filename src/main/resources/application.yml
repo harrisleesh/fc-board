@@ -1,0 +1,16 @@
+spring:
+    datasource:
+#        url: jdbc:mysql://localhost:3306/board?useSSL=false&serverTimezone=Asia/Seoul
+#        username: root
+#        password: 1234
+        url: jdbc:mysql://awseb-e-8ezuvparpg-stack-awsebrdsdatabase-k9brcklmewlr.clmsuvt265ah.ap-northeast-2.rds.amazonaws.com/board?useSSL=false&serverTimezone=Asia/Seoul
+        username: fastcam
+        password: 00000000a
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
