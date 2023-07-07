@@ -22,8 +22,8 @@ class Post(
     var content: String = content
         protected set
 
-    fun update(postUpdateRequestDto: PostUpdateRequestDto){
-        if(postUpdateRequestDto.updatedBy != this.createdBy){
+    fun update(postUpdateRequestDto: PostUpdateRequestDto) {
+        if (postUpdateRequestDto.updatedBy != this.createdBy) {
             throw PostNotUpdatableException()
         }
         this.title = postUpdateRequestDto.title
