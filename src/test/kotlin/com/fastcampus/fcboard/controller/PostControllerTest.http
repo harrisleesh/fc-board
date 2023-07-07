@@ -1,0 +1,28 @@
+### 게시글 생성
+POST /localhost:8080/posts
+Content-Type: application/json
+
+{
+    "title": "title",
+    "content": "content",
+    "createdBy": "createdBy"
+}
+
+### 게시글 수정
+PUT /localhost:8080/posts/11
+Content-Type: application/json
+
+{
+    "title": "title",
+    "content": "content",
+    "updatedBy": "updatedBy"
+}
+
+### 게시글 삭제
+DELETE /localhost:8080/posts/1?createdBy=harris
+
+### 게시글 상세조회
+GET /localhost:8080/posts/1
+
+### 게시글 목록조회
+GET /localhost:8080/posts?page=0&size=10&title=title&createdBy=harris
