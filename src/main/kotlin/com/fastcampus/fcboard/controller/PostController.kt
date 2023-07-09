@@ -28,6 +28,7 @@ class PostController(
     fun createPost(
         @RequestBody postCreateRequest: PostCreateRequest,
     ): Long {
+        println("tags ${postCreateRequest.tags}")
         return postService.createPost(postCreateRequest.toDto())
     }
 
@@ -36,6 +37,7 @@ class PostController(
         @PathVariable id: Long,
         @RequestBody postUpdateRequest: PostUpdateRequest,
     ): Long {
+        println("tags ${postUpdateRequest.tags}")
         return postService.updatePost(id, postUpdateRequest.toDto())
     }
 
@@ -59,6 +61,7 @@ class PostController(
         pageable: Pageable,
         postSearchRequest: PostSearchRequest,
     ): Page<PostSummaryResponse> {
+        println("tag ${postSearchRequest.tag}")
         return postService.findPageBy(pageable, postSearchRequest.toDto()).toResponse()
     }
 }
