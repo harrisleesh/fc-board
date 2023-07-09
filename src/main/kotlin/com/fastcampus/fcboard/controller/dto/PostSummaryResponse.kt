@@ -23,5 +23,5 @@ fun PostSummaryResponseDto.toResponse() = PostSummaryResponse(
     title = title,
     createdBy = createdBy,
     createdAt = createdAt,
-    tag = firstTag,
+    tag = firstTag
 )

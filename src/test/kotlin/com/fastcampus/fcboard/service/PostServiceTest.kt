@@ -41,7 +41,7 @@ class PostServiceTest(
                 Post(title = "title7", content = "content1", createdBy = "harris2", tags = listOf("tag1", "tag5")),
                 Post(title = "title8", content = "content1", createdBy = "harris2", tags = listOf("tag1", "tag5")),
                 Post(title = "title9", content = "content1", createdBy = "harris2", tags = listOf("tag1", "tag5")),
-                Post(title = "title10", content = "content1", createdBy = "harris2", tags = listOf("tag1", "tag5")),
+                Post(title = "title10", content = "content1", createdBy = "harris2", tags = listOf("tag1", "tag5"))
             )
         )
     }
@@ -182,7 +182,7 @@ class PostServiceTest(
             listOf(
                 Tag(name = "tag1", post = saved, createdBy = "harris"),
                 Tag(name = "tag2", post = saved, createdBy = "harris"),
-                Tag(name = "tag3", post = saved, createdBy = "harris"),
+                Tag(name = "tag3", post = saved, createdBy = "harris")
             )
         )
         When("정상 조회시") {
@@ -193,7 +193,7 @@ class PostServiceTest(
                 post.content shouldBe "content"
                 post.createdBy shouldBe "harris"
             }
-            then("태그가 정상적으로 조회됨을 확인한다."){
+            then("태그가 정상적으로 조회됨을 확인한다.") {
                 post.tags.size shouldBe 3
                 post.tags[0] shouldBe "tag1"
                 post.tags[1] shouldBe "tag2"
@@ -251,15 +251,15 @@ class PostServiceTest(
                 postPage.content[0].title shouldContain "title"
                 postPage.content[0].createdBy shouldBe "harris1"
             }
-            then("첫번쨰 태그가 함께 조회됨을 확인한다."){
+            then("첫번쨰 태그가 함께 조회됨을 확인한다.") {
                 postPage.content.forEach {
                     it.firstTag shouldBe "tag1"
                 }
             }
         }
-        When("태그로 검색"){
+        When("태그로 검색") {
             val postPage = postService.findPageBy(PageRequest.of(0, 5), PostSearchRequestDto(tag = "tag5"))
-            then("태그에 해당하는 게시글이 반환된다."){
+            then("태그에 해당하는 게시글이 반환된다.") {
                 postPage.number shouldBe 0
                 postPage.size shouldBe 5
                 postPage.content.size shouldBe 5

@@ -23,5 +23,5 @@ fun Post.toSummaryResponseDto() = PostSummaryResponseDto(
     title = title,
     createdBy = createdBy,
     createdAt = createdAt.toString(),
-    firstTag = tags.firstOrNull()?.name,
+    firstTag = tags.firstOrNull()?.name
 )
