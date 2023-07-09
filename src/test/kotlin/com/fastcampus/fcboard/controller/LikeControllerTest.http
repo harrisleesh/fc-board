@@ -1,0 +1,2 @@
+### 좋아요 생성
+POST localhost:8080/posts/1/likes?createdBy=harris
