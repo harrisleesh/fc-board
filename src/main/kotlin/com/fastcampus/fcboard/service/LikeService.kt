@@ -19,4 +19,8 @@ class LikeService(
         val post = postRepository.findByIdOrNull(postId) ?: throw PostNotFoundException()
         return likeRepository.save(Like(post, createdBy)).id
     }
+
+    fun countLike(postId: Long): Long {
+        return likeRepository.countByPostId(postId)
+    }
 }
