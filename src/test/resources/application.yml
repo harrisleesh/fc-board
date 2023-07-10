@@ -11,3 +11,8 @@ spring:
         properties:
             hibernate:
                 format_sql: true
+    cache:
+        type: redis
+        redis:
+            host: localhost
+            port: 16379

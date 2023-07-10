@@ -11,11 +11,13 @@ import com.fastcampus.fcboard.service.dto.CommentCreateRequestDto
 import com.fastcampus.fcboard.service.dto.CommentUpdateRequestDto
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.extensions.testcontainers.perSpec
 import io.kotest.matchers.comparables.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.repository.findByIdOrNull
+import org.testcontainers.containers.GenericContainer
 
 @SpringBootTest
 class CommentServiceTest(
@@ -23,6 +25,15 @@ class CommentServiceTest(
     private val commentRepository: CommentRepository,
     private val postRepository: PostRepository,
 ) : BehaviorSpec({
+    val redisContainer = GenericContainer<Nothing>("redis:5.0.3-alpine")
+    beforeSpec {
+        redisContainer.portBindings.add("16379:6379")
+        redisContainer.start()
+        listener(redisContainer.perSpec())
+    }
+    afterSpec {
+        redisContainer.stop()
+    }
     given("댓글 생성시") {
         val post = postRepository.save(
             Post(

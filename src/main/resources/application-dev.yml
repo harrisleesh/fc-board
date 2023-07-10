@@ -12,3 +12,8 @@ spring:
             hibernate:
                 format_sql: true
                 default_batch_fetch_size: 100
+    cache:
+        type: redis
+        redis:
+            host: fc-board-redis-0001-001.4bjhyh.0001.apn2.cache.amazonaws.com
+            port: 6379

@@ -12,3 +12,8 @@ spring:
             hibernate:
                 format_sql: true
                 default_batch_fetch_size: 100
+    cache:
+        type: redis
+        redis:
+            host: localhost
+            port: 6379
